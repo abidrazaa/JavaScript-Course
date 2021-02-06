@@ -1,0 +1,66 @@
+*)Initialization:
+    Method 1.
+        var studentName;   //Declaration
+        studentName = "abid";   // Assign
+    Method 2.
+        var studentName = "ABdi";       // Initialization
+
+*)Length of Array:
+    var a = ["Abid","Raza","Naqvi"];
+    a.length
+    Result : 3
+
+*)Pop value from front:   (SHIFT)
+
+    var a = ["Abid","Raza","Naqvi"];
+    a.shift();
+    Result: "Abid" will be popped
+
+*)Add value from front: (UNSHIFT)
+
+    var a = ["Abid","Raza","Naqvi"];
+    a.unshift("Syed");
+    Result: "Syed" will be added from front
+        a = ["Syed","Abid","Raza","Naqvi"]
+
+*)At a particular Index:  (SPLICE)
+    ["Syed", "Abid", "Raza"]
+
+    splice(starting point, no of item to delete, items to add at that index)
+
+    a.splice(0,1,"Mohammad")  // will go to index 0 and will delete 1 item and add Mohammad at that index
+    a
+    Result: ["Mohammad", "Abid", "Raza"]
+
+    a.splice(0,1,"Mohammad","Ali")  // will go to index 0 and will delete 1 item and add Mohammad and Ali at that index
+    a
+    Result: ["Mohammad","Ali", "Abid", "Raza"]
+
+
+
+
+*) Index of a particular value:   (INDEXOF)
+    var a = ["Abid","Raza","Naqvi"];
+    a.indexOf("Raza")
+    Result: 1
+    a.indexOf("Naqvi")
+    Result: 2
+    a.indexOf("Razasdfdn")  // does not exist in the Array 
+    Result: -1
+     
+
+*)Switch Cases VS If Else
+    var dayNumber=2;
+        switch(dayNumber){
+            case 1:
+                alert("Monday")
+                break
+            case 2:
+                alert("Tuesday")
+                break
+            default:
+                alert("Else ki Tara h ye")
+        }
+
+    Switch cases tb lagayenge jb conditions bht zyada hongi.. if else se complexity barhti h.. lakn cases mn direct jump
+    karjata h us particular case mn..

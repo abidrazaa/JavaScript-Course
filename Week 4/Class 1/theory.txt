@@ -1,0 +1,21 @@
+*) PRE INCREMENT:
+    ++sum
+    // sum = 0
+    // ++sum
+    // sum = sum + 1
+    // return 1
+
+*) POST INCREMENT:
+    sum++
+    // sum = 0
+    // return 0 
+    // sum = sum + 1 
+
+*) CALLBACK FUNCTION:
+        wo function jo kisi function mn as an argument pass ho callback function kehlata hai.. 
+
+*) DIFFERNCE BETWEEN PARAMETERS AND ARGUMENTS:
+                    function addition(num1,num2){     // num1 AND num2 are PARAMETERS
+                        return num1+num2
+                    }
+                    var additionResult = addition(3,6)      // 3 and 6 are ARGUMENTS

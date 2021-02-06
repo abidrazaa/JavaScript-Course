@@ -1,0 +1,40 @@
+
+CONSOLE:
+
+	1) console.log("Welcome")  ==== print of python
+
+	2) console.error("Something went wrong!!")
+
+	3) console.warn("Please add something!!")
+
+	4) console.table("")
+
+"Abid"+2        // String ko foqyat deta h
+==> "Abid2"
+
+"2"+2
+==> 22
+
+"2"-2    // pehle check karega k string integer mn convert hoskta hai ya nhy
+==> 0
+
+"2"/2
+==> 1
+
+"Abid"/2
+==> NaN
+
+parseInt("1")+3
+==> 4
+
+
+String to Integer:
+	parseInt("1")
+	OR
+	"1"+2
+
+camelCase:
+	var userName
+	var myFirstName
+
+

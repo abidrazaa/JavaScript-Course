@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment </title>
+    <script src="app.js"></script>
+</head>
+<body>
+
+    <h1> Case Conversion   </h1>
+
+    <p id = "paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa numquam quia vel doloribus quam
+         expedita neque exercitationem libero facilis sequi quas earum sunt fugiat eaque,
+          autem iste ea. Rerum, voluptatem.</p>
+
+    <button onclick="upperCase()"> Upper Case </button> 
+    <button onclick="lowerCase()"> Lower Case </button>
+    <br>
+    <br>
+
+    <h1>Functionalities</h1>
+    <!-- <button onclick="sum(a,b)">SUM</button> -->
+    <button onclick="minus(a,b)">SUBTRACT</button>
+    <button onclick="product(a,b)">PRODUCT</button>
+    <button onclick="divide(a,b)">DIVIDE</button>
+    <button onclick="Add(a,b)">Add</button>
+    
+
+    <script>
+        var a = prompt("Enter First number: ")
+        var b = prompt("Enter Second number: ")
+        function sum(a,b){
+            var answer = ParseInt(a)+ParseInt(b)
+            return(document.write(answer));  
+        }
+        function minus(a,b){
+            return(document.write(a-b));  
+        }
+        function Add(a,b){
+            var c = parseInt(a) + parseInt(b)
+
+            // return c
+            document.write(c)
+        }
+        function product(a,b){
+            return(document.write(a*b));  
+        }
+        function divide(a,b){
+            return(document.write(a/b));  
+        }
+        function upperCase(){
+            var a = document.getElementById("paragraph").innerHTML;
+            var upper = a.toUpperCase();
+            document.getElementById("paragraph").innerHTML = upper;
+        }
+        function lowerCase(){
+            var a = document.getElementById("paragraph").innerHTML;
+            var lower = a.toLowerCase();
+            document.getElementById("paragraph").innerHTML = lower;
+        }
+
+    </script>
+</body>
+</html>

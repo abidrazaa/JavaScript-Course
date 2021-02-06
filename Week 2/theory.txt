@@ -1,0 +1,4 @@
+== comparsion of value
+=== comparision of values as  well as data type
+!= not equals to
+!== if data type is not same

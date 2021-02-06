@@ -1,0 +1,45 @@
+FILTER vs FIND:
+    filter un tamam values ko le ayega jo condition ko satisfy karenge.. output array mn aata h.. 
+    find sirf pehli value le ayega chahy us condition ko or bhi values satisfy karti hon.. ismn single value output aata h..
+
+
+*) CONCAT:
+        a=["a","b"]
+        b=["c","d"]
+    
+        a.concat(b)
+    output:
+        (4) ["a", "b", "c", "d"]
+
+*) FOR EACH LOOP:
+    studentNames = ["Abid", "Yazdan", "Kazim"]
+    studentNames.forEach(function(name){
+    console.log(name)
+    })
+
+*) ARRAY . IS ARRAY   // check whether the passed data type is array or not
+        Array.isArray(studentNames)
+    output:
+        true
+
+        Array.isArray([])
+    output:
+        true
+
+        Array.isArray("haijspo")
+    output:
+        false
+
+
+*) MAP
+        studentNames = ["Abid", "Yazdan", "Kazim"]
+
+        var a = studentNames.map(function(name){
+            if(name!="Abid") return name + "Bhai"
+            return name
+        })
+        document.write(a)
+
+
+    output:
+        Abid,YazdanBhai,KazimBhai

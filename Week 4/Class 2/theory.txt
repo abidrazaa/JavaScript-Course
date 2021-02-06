@@ -1,0 +1,22 @@
+FILTER:
+    array.filter(callback function)
+
+        Example:
+            var studentNames = ["Abid","Raza","Raza","Raza","Raza","Naqvi"];
+
+            function filterFunction(studentName){   // studentName mn array ki ek ek value aati rahegi.. is variable ko ap kch bhi rakh skte ho..
+                return studentName == "Raza"
+            }
+
+            var a = studentNames.filter(filterFunction)
+            document.write(a)
+
+INCLUDES:
+    ye check karta h k particular value array mn mojud hai ya nhy..
+    
+    Example:
+        var studentNames = ["Abid","Raza","Raza","Raza","Raza","Naqvi"];
+        document.write(studentNames.includes("abid"))    // agar array mn abid mojud hoga to true answer ayega warna false..
+
+
+

@@ -1,0 +1,36 @@
+*) JOIN:            // joins the elements of array with whatever you want between them. returns a string value.
+        var studentNames = ["Abid","Yazdan","Kazim"];
+        studentNames.join("/");
+    output:
+        "Abid/Yazdan/Kazim"
+
+
+
+*) REVERSE:         // reverse the array
+        a= ["abid","Yazdan"]
+        a.reverse()
+    output:
+        ["Yazdan", "abid"]
+
+
+*) SPLIT:       // it is applicable on strings
+        a="abid"
+        a.split("")
+    output:
+        ["a", "b", "i", "d"]
+
+
+        s = "abid,yazdan,kazim,ibad"
+        s.split(",")
+    output:
+        ["abid", "yazdan", "kazim", "ibad"]
+
+
+*) TERNARY OPERATORS:
+    a=10
+    a>5 ? console.log("Wah") : console.log("else")
+// condition ? if : else
+
+    output:
+        "Wah"
+
