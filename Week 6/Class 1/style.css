@@ -1,0 +1,19 @@
+.button{
+    color: white;
+    height: 50px;
+    width: 100px;
+    background-color: rgb(35, 36, 34);
+    border-color: white;
+    font-size: 30px;
+}
+
+#time{
+    color: turquoise;
+    font-size: 150px;
+    border-style: dashed;
+    /* border-style: dotted; */
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 40px;
+    padding: 30px;
+}
