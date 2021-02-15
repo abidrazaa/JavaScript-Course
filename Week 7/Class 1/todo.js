@@ -6,6 +6,8 @@ var todoList = [];
 var obj;
 var serial = 1;
 var length;
+
+
 function add(){
     var todoAdd = document.getElementById("text").value;
     document.getElementById("text").value="";
@@ -18,22 +20,53 @@ function add(){
 
     obj = {title : todoAdd , createdAt : dated , isCompleted : false };
     todoList.push(obj);
-    // console.log(todoList);
     length = todoList.length;
     
     var listt = document.createElement("LI");
-    // console.log("ww")
-    var t = document.createTextNode(todoAdd);
-    // document.body.appendChild(t);
-    listt.appendChild(t);
+    var textt = document.createTextNode(todoAdd);
+    var deleteButton = document.createElement("button");
+    deleteButton.innerText = "DELETE"
+    deleteButton.setAttribute("id","del")
+    // deleteButton.onclick(deleteTask())
+    // deleteButton.setAttribute("onclick",deleteTask)
+    listt.appendChild(textt);
+    listt.appendChild(deleteButton);
+
     document.getElementById("mylist").appendChild(listt);
 
 
-
- 
-
-
 }
+
+function deleteTask(){
+    console.log("Delete Task...");
+    
+    // var index = document.querySelectorAll("#del");
+    // index[i].onclick = function(){
+    //     todoList.splice(index,1);
+    //     console.log(todoList)
+    // }
+
+    // var listItem=this.parentNode;
+    // var ul=listItem.parentNode;
+    // //Remove the parent list item from the ul.
+    // ul.removeChild(listItem);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function display(){
