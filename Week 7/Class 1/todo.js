@@ -6,9 +6,11 @@ var todoList = [];
 var obj;
 var serial = 1;
 var length;
+var deleteButton = document.createElement("button");
 
 
 function add(){
+
     var todoAdd = document.getElementById("text").value;
     document.getElementById("text").value="";
 
@@ -21,12 +23,12 @@ function add(){
     obj = {title : todoAdd , createdAt : dated , isCompleted : false };
     todoList.push(obj);
     length = todoList.length;
-    
+    console.log(todoList);
     var listt = document.createElement("LI");
+
     var textt = document.createTextNode(todoAdd);
-    var deleteButton = document.createElement("button");
     deleteButton.innerText = "DELETE"
-    deleteButton.setAttribute("id","del")
+    // deleteButton.setAttribute("id","del")
     // deleteButton.onclick(deleteTask())
     // deleteButton.setAttribute("onclick",deleteTask)
     listt.appendChild(textt);
@@ -34,8 +36,20 @@ function add(){
 
     document.getElementById("mylist").appendChild(listt);
 
+    // console.log(length-1)
+    deleteButton.setAttribute("id", (length-1).toString());
+    deleteButton.onclick(deleteTask());
+
+    listt.setAttribute("id", (length-1).toString());
+    console.log(deleteButton.id)
+
+    // console.log(id);
+
+
 
 }
+
+
 
 function deleteTask(){
     console.log("Delete Task...");
