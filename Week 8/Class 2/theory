@@ -1,0 +1,6 @@
+Get = read
+put = update
+post = save
+delete = delete
+
+These 4 combines to form CRUD operations
