@@ -8,15 +8,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="app.js"></script>
     <script src="todo.js"></script>
+    <link rel="stylesheet" href="todo.css">
 </head>
 <body>
+    <center>
+        <h1>Todo-List</h1>
    
     <input type="text" id="text" placeholder="Title">
-    <button onclick="add()">Add</button>
-
-    <ol id="mylist">
+    <button class = "btn" onclick="add()">Add</button>
+<div class =  "items">
+    <ol id="mylist" class="mylist">
 
     </ol>
-    
+</div>
+    </center>
 </body>
 </html>
