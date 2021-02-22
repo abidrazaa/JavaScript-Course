@@ -7,20 +7,23 @@
     <title>Document</title>
     <script src="API.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <center>
-    <h1>Github Profiles</h1>
-   
-
-    <div class="body-container">
-        <input type="text" id="github-name">
-        <button onclick="search()" id = "search-btn">Search</button>
+    
+    <h1 align = "center" style="color: cornsilk;">Github Profiles</h1>
+    <div  align= "center" class="input-fields">
+    <input type="text" id="github-name">
+    <button onclick="search()" id="search-btn"><i class="fa fa-search"></i></button>
+    </div>
+    <div class="body-container" id= "body-container" align = "center">
+        
+        <!-- <button onclick="search()" id = "search-btn">Search</button> -->
         <div class="container" id = "container">
             <div class="first-container">
-                <p id = "name"></p>
-                <p id = "company"></p>
-                <i><p id = "created_at"></p></i>
+                <p id = "name" style="color: rgb(2, 77, 18); font-size:25px "></p>
+                 <p id = "company" style="color: rgb(6, 6, 14); font-size:15px; font-style:italic "> </p>
+                <i><p id = "bio" style="color: rgb(5, 5, 12);"></p></i>
             </div>
 
             <div class="second-container">
@@ -28,13 +31,14 @@
             </div>
         </div>
         <div class="container-2">
+            <p id = "repos"></p>
             <p id = "followers"></p>
             <p id = "followings"></p>
         </div>
     </div>
 
    
-</center>
+
     
 </body>
 </html>
