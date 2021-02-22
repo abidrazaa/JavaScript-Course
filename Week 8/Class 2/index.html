@@ -10,16 +10,28 @@
 </head>
 <body>
     <center>
-    <h1>Github APIs</h1>
-    <input type="text" id="github-name">
-    <button onclick="search()" id = "search-btn">Search</button>
+    <h1>Github Profiles</h1>
+   
 
-    <div class="container">
-        <p id = "name"></p>
-            <p id = "company"></p>
-            <p id = "created_at"></p>
+    <div class="body-container">
+        <input type="text" id="github-name">
+        <button onclick="search()" id = "search-btn">Search</button>
+        <div class="container" id = "container">
+            <div class="first-container">
+                <p id = "name"></p>
+                <p id = "company"></p>
+                <i><p id = "created_at"></p></i>
+            </div>
 
-            <img src= "" id = "image" alt="profile Picture">
+            <div class="second-container">
+                <img src= "" id = "image">
+            </div>
+        </div>
+        <div class="container-2">
+            <p id = "followers"></p>
+            <p id = "followings"></p>
+        </div>
+    </div>
 
    
 </center>
