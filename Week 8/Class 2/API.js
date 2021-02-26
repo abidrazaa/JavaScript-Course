@@ -41,9 +41,3 @@ fetch("https://api.github.com/users/"+nameOfPerson)
 
 })
 }
-
-// function add_img(imagePath) { 
-// 	var img = document.createElement('img'); 
-//     img.src = imagePath 
-// 	document.getElementById('body').appendChild(img);
-// }
