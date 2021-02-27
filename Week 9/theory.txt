@@ -1,0 +1,4 @@
+ES6 = standard used by JavaScript
+
+
+new Date().toLocaleTimeString()   == poora time btayega hours, minutes or seconds
