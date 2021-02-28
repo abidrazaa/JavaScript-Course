@@ -1,4 +1,72 @@
-ES6 = standard used by JavaScript
+*)ES6 = standard used by JavaScript
 
 
-new Date().toLocaleTimeString()   == poora time btayega hours, minutes or seconds
+*)new Date().toLocaleTimeString()   == poora time btayega hours, minutes or seconds
+
+*)Data types:
+    Boolean
+    Array
+    Object
+    String
+    Integer 
+    null 
+    undefined
+
+
+*)Non premitive : 
+    reference by address
+    jis jis ki typeOf = object h wo non premitive kehlayenge
+    e.g: 
+        Array
+        object
+
+    var a = ["abid","raza"]
+    var b = a           // b mn as it is a uth kar ajayega
+
+    b.push("Naqvi")         // asoolan to sirf b ko update hona chaiye lakn choonke ye non premitive data type h to b ko update krne se a mn bhi wo chz update hojayegi
+
+    result:
+        a = ["abid","raza","Naqvi"]
+        b = ["abid","raza","Naqvi"]
+
+
+*)premitive:  
+    reference by value
+    e.g:
+        Integer
+        String
+        Boolean
+
+*)Object.assign: (Vanilla JavaScript ka function h ye)      // jb ap chahrahe hon k ap jo modification kara rahay hn wo sirf ek variable tk mehdood rahay
+    Object.assign({},a)
+    Object.assign(target object, source object)
+
+    e.g:
+        var infoVanilla = {name:"Abid" , standard:"university"}
+        var c = Object.assign({infoVanilla:"Wah wah"},infoVanilla)
+
+        result:
+            info Vanilla = {name: "Abid", standard: "university"}
+            c = {infoVanilla: "Wah wah", name: "Abid", standard: "university"}
+
+
+*)Spread Operator:
+    b={name:"abid"}
+    var a = {...b} // a mn as it is b uth kr ajayega lakn ismn alag baat ye h k jb ham a ya b mn se kisi ko modify karenge sirf wohi modify hoga
+                // let say mn a ko modify karun to isse b pr koi farq nhy parega
+
+
+*) Object to String:
+    var b = JSON.stringify(a)
+
+*) String to Object:
+    JSON.parse(b)
+
+
+    e.g:
+        a = {name: "Abid", standard: "university"}
+         ==> {name: "Abid", standard: "university"}
+        b = JSON.stringify(a)
+         ==> "{"name":"Abid","standard":"university"}"
+        c = JSON.parse(b)
+         ==> {name: "Abid", standard: "university"}
