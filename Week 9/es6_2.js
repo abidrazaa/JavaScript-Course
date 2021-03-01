@@ -25,4 +25,5 @@ var b = {...info , grade:"A1"}  // b mn as it is info uth kr ajayega or agar ham
 
 console.log("info : " ,info)
 console.log("b : ",b)
+console.log(b.grade)
 
