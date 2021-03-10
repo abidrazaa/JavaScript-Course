@@ -1,0 +1,19 @@
+create PROTOTYPE:
+
+        function Student({name,classCode,id}) {
+            this.name = name;
+            this.classCode = classCode;
+            this.id = id;
+        }
+
+        Student.prototype.getName = function () {
+            return this.name;
+        }
+
+        Output:
+            student1.getName()
+            "Abid"
+            student2.getName()
+            "Raza"
+            student3.getName()
+            "Naqvi"
