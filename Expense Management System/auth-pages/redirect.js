@@ -7,6 +7,7 @@ let redirect = (value) => {
     }
 }
 
+var data =[];
 let getData = (event) => {
     event.preventDefault();
     // swal("Good job!", "You clicked the button!", "success");
@@ -16,20 +17,38 @@ let getData = (event) => {
     if(!username || !password || !email){
         alert("Please enter in all fields")
     }
-    const userData = {
-        email,
-        password,
-        username
-      }
+    var userData = {};
 
-    let users = localStorage.getItem('AllUsers');
-    if(!)
-    users = [JSON.parse(users)];
-    users.push(userData);
+    userData["username"] = username;
+    userData["password"] = password;
+    userData["email"] = email;
+
+    data.push(userData);
+    console.log(data);
+
+    users = JSON.stringify(data);
+    localStorage.setItem("AllUsers", users)
+    a = localStorage.getItem("AllUsers")
+    // console.log(JSON.parse(a))
+    // console.log(a)
+    
 
 
-    userData = JSON.stringify(users);
-    localStorage.setItem('AllUsers', users)
+
+
+
+    // let users = localStorage.getItem('AllUsers');
+    // console.log(users)
+    // if(users == null){
+    //     users = "{}"
+    //     console.log("wa")
+    // }
+    // users = [JSON.parse(users)];
+    // users.push(userData);
+
+
+    // userData = JSON.stringify(users);
+    // localStorage.setItem('AllUsers', users)
 
 
     // console.log(data)
