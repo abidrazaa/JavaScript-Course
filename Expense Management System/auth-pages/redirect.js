@@ -8,6 +8,8 @@ let redirect = (value) => {
 }
 
 var data =[];
+var userData = {};
+
 let getData = (event) => {
     event.preventDefault();
     // swal("Good job!", "You clicked the button!", "success");
@@ -17,7 +19,6 @@ let getData = (event) => {
     if(!username || !password || !email){
         alert("Please enter in all fields")
     }
-    var userData = {};
 
     userData["username"] = username;
     userData["password"] = password;
@@ -29,6 +30,10 @@ let getData = (event) => {
     users = JSON.stringify(data);
     localStorage.setItem("AllUsers", users)
     a = localStorage.getItem("AllUsers")
+
+
+    // window.location.assign("login.html")
+    // window.location = "../dashord/expense.html"
     // console.log(JSON.parse(a))
     // console.log(a)
     
@@ -68,4 +73,29 @@ let getData = (event) => {
     // let stringUsersData = JSON.stringify(users)
   
  
+}
+
+
+
+// currentUser;
+let login = (event) => {
+    event.preventDefault();
+
+    email = document.getElementById("email").value
+    password = document.getElementById("password").value
+
+    allUsers = localStorage.getItem("AllUsers");
+    allUsers = JSON.parse(allUsers);
+
+    for(i=0; i < allUsers.length; i++){
+        if(email == allUsers[i].email && password == allUsers[i].password){
+
+            console.log(allUsers);
+            console.log("Email: ",email)
+            currentUsername = allUsers[i].username;
+            localStorage.setItem("currentUser",currentUsername)
+            window.location.assign("../dashbord/expense.html")
+        }
+    }
+
 }
