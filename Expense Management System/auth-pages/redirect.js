@@ -7,29 +7,36 @@ let redirect = (value) => {
     }
 }
 
-var data =[];
-var userData = {};
+// var data =[];
+// var userData = {};
 
-let getData = (event) => {
-    event.preventDefault();
-    // swal("Good job!", "You clicked the button!", "success");
-    const username = document.getElementById("username").value
-    const password = document.getElementById("password1").value
-    const email = document.getElementById("email").value
-    if(!username || !password || !email){
-        alert("Please enter in all fields")
-    }
+// let getData = (event) => {
+//     event.preventDefault();
+//     // swal("Good job!", "You clicked the button!", "success");
+//     const username = document.getElementById("username").value
+//     const password = document.getElementById("password1").value
+//     const email = document.getElementById("email").value
+//     if(!username || !password || !email){
+//         alert("Please enter in all fields")
+//     }
 
-    userData["username"] = username;
-    userData["password"] = password;
-    userData["email"] = email;
+//     userData = {
+//         username : username,
+//         password : password,
+//         email : email
+//     }
 
-    data.push(userData);
-    console.log(data);
+    
+//     // userData["username"] = username;
+//     // userData["password"] = password;
+//     // userData["email"] = email;
 
-    users = JSON.stringify(data);
-    localStorage.setItem("AllUsers", users)
-    a = localStorage.getItem("AllUsers")
+//     data.push(userData);
+//     console.log(data);
+
+//     users = JSON.stringify(data);
+//     localStorage.setItem("AllUsers", users)
+//     a = localStorage.getItem("AllUsers")
 
 
     // window.location.assign("login.html")
@@ -73,7 +80,7 @@ let getData = (event) => {
     // let stringUsersData = JSON.stringify(users)
   
  
-}
+// }
 
 
 
