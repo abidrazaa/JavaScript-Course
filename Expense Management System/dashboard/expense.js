@@ -40,7 +40,7 @@ let expensesList = () => {
         // if(i==0){
         //     textt = finalExpenses[j]["amount"]
         // }else{
-
+// 
         // }
         i == 0 ? textt = finalExpenses[j]["item"] : textt = finalExpenses[j]["amount"];
         var cellText = document.createTextNode(textt);
