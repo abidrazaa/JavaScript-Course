@@ -15,23 +15,48 @@ let getData = (event) => {
     }
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-    // Signed in 
-    console.log("SUCCESS")
-    var user = userCredential.user;
-    document.getElementById("username").value = ""
-    document.getElementById("password").value = ""
-    document.getElementById("password1").value = ""
-    document.getElementById("email").value = ""
-    window.location.href = "login.html"
-    // ...
+        db.collection("users").add({
+            username: username ,
+            email: email,
+            password: password
+        })
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+            console.log("wah")
+            window.location.href = "login.html"
+
+
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+        // Signed in 
+        console.log("SUCCESS")
+        var user = userCredential.user;
+        document.getElementById("username").value = ""
+        document.getElementById("password").value = ""
+        document.getElementById("password1").value = ""
+        document.getElementById("email").value = ""
+        // ...
     })
     .catch((error) => {
 
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log("FAIL: ",errorMessage )
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log("FAIL: ",errorMessage )
 
-    // ..
+        // ..
     });
 
+    // db.collection("users").add({
+    //     username: username ,
+    //     email: email,
+    //     password: password
+    // }).then((docRef) => {
+    //     console.log("Document written with ID: ", docRef.id);
+    //     console.log("wah")
+    // })
+    // .catch((error) => {
+    //     console.error("Error adding document: ", error);
+    // });
 }
