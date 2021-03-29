@@ -15,6 +15,7 @@ let getData = (event) => {
     }
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
+        
         db.collection("users").add({
             username: username ,
             email: email,
@@ -24,7 +25,6 @@ let getData = (event) => {
             console.log("Document written with ID: ", docRef.id);
             console.log("wah")
             window.location.href = "login.html"
-
 
         })
         .catch((error) => {
