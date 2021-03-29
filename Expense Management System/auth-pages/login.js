@@ -23,7 +23,7 @@
     // var user = userCredential.user;
     document.getElementById("password").value = ""
     document.getElementById("email").value = ""
-    // window.location.href = "login.html"
+    window.location.href = "../dashboard/dashboard.html"
     // ...
   })
   .catch((error) => {
