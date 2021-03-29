@@ -8,6 +8,10 @@ let redirect = (value) => {
     else if(value == "add-expenses"){
         window.location.href = "../dashboard/add-expense.html"
     }
+    else if(value == "add_expense.html"){
+        window.location.href = "../dashboard/add_expense.html"
+    }
+    
 }
 
 // var data =[];
