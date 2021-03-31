@@ -15,15 +15,21 @@ let getData = (event) => {
     }
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
+        var user = userCredential.user;
+        // console.log(user.uid);
+
         
         db.collection("users").add({
             username: username ,
             email: email,
-            password: password
+            password: password,
+            uid: user.uid
         })
         .then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
             console.log("wah")
+            // console.log("uid in signup: ",user.uid)
+
             window.location.href = "login.html"
 
         })
@@ -32,7 +38,6 @@ let getData = (event) => {
         });
         // Signed in 
         console.log("SUCCESS")
-        var user = userCredential.user;
         document.getElementById("username").value = ""
         document.getElementById("password").value = ""
         document.getElementById("password1").value = ""
