@@ -37,23 +37,23 @@ firebase.auth().onAuthStateChanged((user) => {
 
         db.collection("users").get().then((querySnapshot) => {
             querySnapshot.docs.forEach((doc) => {
-                if(uid == doc.data().uid){
+                if (uid == doc.data().uid) {
                     nameToShow = doc.data().username;
                     // document.getElementById("user").value = "Welcome "+doc.data().username;
                     // console.log("aftrer")
                 }
-                
+
             });
         });
 
         db.collection("expenses").get().then((querySnapshot) => {
             querySnapshot.docs.forEach((doc) => {
-                // console.log(doc.data().uid);
+                // console.log(doc.id);
                 if (doc.data().uid == uid) {
                     console.log("category is :", doc.data().category)
                     console.log("Expense is :", doc.data().expense)
 
-                    document.getElementById("p1").innerHTML = "Welcome "+nameToShow;
+                    document.getElementById("p1").innerHTML = "Welcome " + nameToShow;
 
 
                     function tableCreate() {
@@ -76,22 +76,30 @@ firebase.auth().onAuthStateChanged((user) => {
                         tr.appendChild(td1)
 
                         var btn = document.createElement("button");
-                        btn.setAttribute("class","btn btn-default btn-sm")
+                        btn.setAttribute("class", "btn btn-default btn-sm")
                         var td2 = document.createElement('td');
                         var spanned = document.createElement('span')
-                        spanned.setAttribute("id",doc.data().uid)
-                        spanned.setAttribute("class","glyphicon glyphicon-edit")
+                        spanned.setAttribute("id", doc.id)
+                        // spanned.setAttribute("onclick",editData(doc.id))
+
+                        spanned.setAttribute("class", "glyphicon glyphicon-edit")
                         btn.appendChild(spanned)
                         td2.appendChild(btn)
                         tr.appendChild(btn)
 
 
                         var btn2 = document.createElement("button");
-                        btn2.setAttribute("class","btn btn-default btn-sm")
+                        btn2.setAttribute("class", "btn btn-default btn-sm")
+                        docId = doc.id
+                        console.log("DOC ID OUT", docId);
+
+                        btn2.setAttribute("onclick", "deleteData(docId)")
+
                         var td2 = document.createElement('td');
                         var spanned = document.createElement('span')
-                        spanned.setAttribute("id",doc.data().uid)
-                        spanned.setAttribute("class","glyphicon glyphicon-trash")
+                        // spanned.setAttribute("id",doc.id)
+                        // spanned.setAttribute("onClick",deleteData(doc.id))
+                        spanned.setAttribute("class", "glyphicon glyphicon-trash")
                         btn2.appendChild(spanned)
                         td2.appendChild(btn2)
                         tr.appendChild(btn2)
@@ -104,13 +112,6 @@ firebase.auth().onAuthStateChanged((user) => {
                         // body.appendChild(tbl)
                     }
                     tableCreate();
-
-
-
-
-
-
-
 
 
                 }
@@ -127,14 +128,42 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
 
+let deleteData = (Id) => {
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+
+            if (willDelete) {
+                db.collection("expenses").doc(Id).delete().then(() => {
+                    console.log("Document successfully deleted!");
+                    window.location = "dashboard.html"
+                }).catch((error) => {
+                    console.error("Error removing document: ", error);
+                });
+                swal("Poof! Your imaginary file has been deleted!", {
+                    icon: "success",
+                });
+            } else {
+                swal("Your imaginary file is safe!");
+            }
+        });
+
+
+}
+
+
+
+
+
 let expense = (e) => {
     e.preventDefault();
     const expense = document.getElementById("expense").value
     const category = document.getElementById("category").value
-
-
-
-
 
     db.collection("expenses").add({
         uid: uid,
