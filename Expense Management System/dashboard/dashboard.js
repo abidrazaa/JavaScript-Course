@@ -20,9 +20,12 @@
 //     });
 // });
 
+// document.getElementById("userToShow").innerHTML = "Welcome"
+
+
 
 var uid;
-
+var nameToShow;
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -31,6 +34,18 @@ firebase.auth().onAuthStateChanged((user) => {
         uid = user.uid;
         console.log("Current user is ", uid)
 
+
+        db.collection("users").get().then((querySnapshot) => {
+            querySnapshot.docs.forEach((doc) => {
+                if(uid == doc.data().uid){
+                    nameToShow = doc.data().username;
+                    // document.getElementById("user").value = "Welcome "+doc.data().username;
+                    // console.log("aftrer")
+                }
+                
+            });
+        });
+
         db.collection("expenses").get().then((querySnapshot) => {
             querySnapshot.docs.forEach((doc) => {
                 // console.log(doc.data().uid);
@@ -38,6 +53,7 @@ firebase.auth().onAuthStateChanged((user) => {
                     console.log("category is :", doc.data().category)
                     console.log("Expense is :", doc.data().expense)
 
+                    document.getElementById("p1").innerHTML = "Welcome "+nameToShow;
 
 
                     function tableCreate() {
@@ -59,10 +75,29 @@ firebase.auth().onAuthStateChanged((user) => {
                         td1.appendChild(document.createTextNode(doc.data().expense))
                         tr.appendChild(td1)
 
-                        var td1 = document.createElement('td');
-                        td1.appendChild(document.createTextNode(doc.data().expense))
-                        tr.appendChild(td1)
-                            
+                        var btn = document.createElement("button");
+                        btn.setAttribute("class","btn btn-default btn-sm")
+                        var td2 = document.createElement('td');
+                        var spanned = document.createElement('span')
+                        spanned.setAttribute("id",doc.data().uid)
+                        spanned.setAttribute("class","glyphicon glyphicon-edit")
+                        btn.appendChild(spanned)
+                        td2.appendChild(btn)
+                        tr.appendChild(btn)
+
+
+                        var btn2 = document.createElement("button");
+                        btn2.setAttribute("class","btn btn-default btn-sm")
+                        var td2 = document.createElement('td');
+                        var spanned = document.createElement('span')
+                        spanned.setAttribute("id",doc.data().uid)
+                        spanned.setAttribute("class","glyphicon glyphicon-trash")
+                        btn2.appendChild(spanned)
+                        td2.appendChild(btn2)
+                        tr.appendChild(btn2)
+
+
+
                         tbdy.appendChild(tr);
 
                         tbl.appendChild(tbdy);
