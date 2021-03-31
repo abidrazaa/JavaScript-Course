@@ -37,6 +37,47 @@ firebase.auth().onAuthStateChanged((user) => {
                 if (doc.data().uid == uid) {
                     console.log("category is :", doc.data().category)
                     console.log("Expense is :", doc.data().expense)
+
+
+
+                    function tableCreate() {
+                        var tbl = document.getElementsByClassName('table')[0];
+                        // var tbl = document.createElement('table');
+                        // tbl.style.width = '100%';
+                        // tbl.setAttribute('border', '1');
+                        // tbl.setAttribute('class', 'table');
+                        var tbdy = document.createElement('tbody');
+                        var tr = document.createElement('tr');
+
+
+
+                        var td = document.createElement('td');
+                        td.appendChild(document.createTextNode(doc.data().category))
+                        tr.appendChild(td)
+
+                        var td1 = document.createElement('td');
+                        td1.appendChild(document.createTextNode(doc.data().expense))
+                        tr.appendChild(td1)
+
+                        var td1 = document.createElement('td');
+                        td1.appendChild(document.createTextNode(doc.data().expense))
+                        tr.appendChild(td1)
+                            
+                        tbdy.appendChild(tr);
+
+                        tbl.appendChild(tbdy);
+                        // body.appendChild(tbl)
+                    }
+                    tableCreate();
+
+
+
+
+
+
+
+
+
                 }
             });
         });
