@@ -80,6 +80,8 @@ firebase.auth().onAuthStateChanged((user) => {
                         var spanned = document.createElement('span')
                         spanned.setAttribute("id", doc.id)
                         // spanned.setAttribute("onclick",editData(doc.id))
+                        btn.setAttribute("onclick", "editData(docId)")
+
 
                         spanned.setAttribute("class", "glyphicon glyphicon-edit")
                         btn.appendChild(spanned)
@@ -125,32 +127,61 @@ firebase.auth().onAuthStateChanged((user) => {
 })
 
 
+function renderModal(){
+    // create the background modal div
+    const modal = document.createElement('div')
+    modal.classList.add('modal-body')
+    // create the inner modal div with appended argument
+    const child = document.createElement('div')
+    child.classList.add('child')
+    // child.innerHTML = element
+    // render the modal with child on DOM
+    modal.appendChild(child)
+    document.body.appendChild(modal)
+  }
+
+let editData = (Id) => {
+
+   
+
+    console.log("Edit")
+    renderModal()
+
+
+
+    db.collection("expenses").doc(Id).update({
+            capital: true
+    });
+}
+
+
+
 
 
 let deleteData = (Id) => {
-    swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-    })
-        .then((willDelete) => {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
 
-            if (willDelete) {
-                db.collection("expenses").doc(Id).delete().then(() => {
-                    console.log("Document successfully deleted!");
-                    window.location = "dashboard.html"
-                }).catch((error) => {
-                    console.error("Error removing document: ", error);
+                    if (willDelete) {
+                        db.collection("expenses").doc(Id).delete().then(() => {
+                            console.log("Document successfully deleted!");
+                            window.location = "dashboard.html"
+                        }).catch((error) => {
+                            console.error("Error removing document: ", error);
+                        });
+                        swal("Poof! Your imaginary file has been deleted!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
                 });
-                swal("Poof! Your imaginary file has been deleted!", {
-                    icon: "success",
-                });
-            } else {
-                swal("Your imaginary file is safe!");
-            }
-        });
 
 
 }
@@ -160,12 +191,12 @@ let deleteData = (Id) => {
 
 
 let expense = (e) => {
-    e.preventDefault();
+            e.preventDefault();
     const expense = document.getElementById("expense").value
     const category = document.getElementById("category").value
 
     db.collection("expenses").add({
-        uid: uid,
+            uid: uid,
         expense: expense,
         date: Date.now(),
         category: category
