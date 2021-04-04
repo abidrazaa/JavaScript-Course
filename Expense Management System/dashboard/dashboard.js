@@ -143,9 +143,10 @@ function renderModal(){
 let editData = (Id) => {
 
    
-
-    console.log("Edit")
-    renderModal()
+    // window.location = "edit_data.html"
+    // document.getElementById("expense").value =   
+    console.log(doc.data().expense)
+    // renderModal()
 
 
 
