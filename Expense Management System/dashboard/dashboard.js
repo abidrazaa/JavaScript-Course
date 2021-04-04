@@ -127,32 +127,42 @@ firebase.auth().onAuthStateChanged((user) => {
 })
 
 
-function renderModal(){
-    // create the background modal div
-    const modal = document.createElement('div')
-    modal.classList.add('modal-body')
-    // create the inner modal div with appended argument
-    const child = document.createElement('div')
-    child.classList.add('child')
-    // child.innerHTML = element
-    // render the modal with child on DOM
-    modal.appendChild(child)
-    document.body.appendChild(modal)
-  }
+// function renderModal(){
+//     // create the background modal div
+//     const modal = document.createElement('div')
+//     modal.classList.add('modal-body')
+//     // create the inner modal div with appended argument
+//     const child = document.createElement('div')
+//     child.classList.add('child')
+//     // child.innerHTML = element
+//     // render the modal with child on DOM
+//     modal.appendChild(child)
+//     document.body.appendChild(modal)
+//   }
 
 let editData = (Id) => {
 
    
-    // window.location = "edit_data.html"
     // document.getElementById("expense").value =   
-    console.log(doc.data().expense)
+    // console.log(doc.data().expense)
     // renderModal()
 
 
-
-    db.collection("expenses").doc(Id).update({
-            capital: true
+    db.collection("expenses").doc(Id).get()
+    .then((doc) => {
+        console.log(doc.data());
+        var edittedExpense = prompt("Update expense",doc.data().expense)
+        db.collection("expenses").doc(Id).update({
+            expense: edittedExpense
     });
+    })
+
+
+    // window.location = "edit_data.html"
+    // document.getElementById("expense").value = doc.data().expense
+    // document.getElementById("category").value = doc.data().category
+
+    
 }
 
 
